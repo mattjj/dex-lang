@@ -25,7 +25,7 @@ class Module:
       api.raise_from_dex()
 
   def __del__(self):
-    if api.nofree:
+    if api is None or api.nofree:
       return
     api.destroyContext(self)
 
